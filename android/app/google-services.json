@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "753681300785",
+    "project_id": "inst-application-tayebe-sth",
+    "storage_bucket": "inst-application-tayebe-sth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:753681300785:android:4753fd462d910e3b620410",
+        "android_client_info": {
+          "package_name": "sth.flutter.org.instagram_sample_application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "753681300785-bm08si9m8rfiulpjagv00hjdo1nrjf20.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVA-VZOeM6UEMbU4b2joKz5kfxMDTFUOU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "753681300785-bm08si9m8rfiulpjagv00hjdo1nrjf20.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
