@@ -40,7 +40,6 @@ class LoadingScreen {
 
     final renderBox = context.findRenderObject() as RenderBox;
     final size = renderBox.size;
-    print(size);
     final overlay = OverlayEntry(
       builder: (context) {
         return Material(
