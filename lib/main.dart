@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:instagram_sample_application/state/auth/backend/authenticator.dart';
 import 'package:instagram_sample_application/state/auth/providers/auth_state_provider.dart';
 import 'firebase_options.dart';
 import 'dart:developer' as devtools show log;
 import 'package:instagram_sample_application/state/auth/providers/is_logged_in_provider.dart';
+
 extension Log on Object {
   void log() => devtools.log(toString());
 }
@@ -40,9 +40,9 @@ class MyApp extends StatelessWidget {
       home: Consumer(
         builder: (context, ref, child) {
           final isLoggedIn = ref.watch(isLoggedInProvider);
-          if(isLoggedIn){
+          if (isLoggedIn) {
             return const MainView();
-          }else{
+          } else {
             return const LoginView();
           }
         },
@@ -58,13 +58,16 @@ class MainView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Instagram'),
+        title: const Text('Instagram'),
       ),
       body: Consumer(
-        builder: (context, ref, child) {
-          return TextButton(onPressed: (){
-            ref.read(authStateProvider.notifier).logOut();
-          }, child: Text('Logout'));
+        builder: (_, ref, child) {
+          return TextButton(
+            onPressed: () {
+              ref.read(authStateProvider.notifier).logOut();
+            },
+            child: const Text('Logout'),
+          );
         },
       ),
     );
@@ -75,7 +78,7 @@ class LoginView extends ConsumerWidget {
   const LoginView({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context,WidgetRef ref) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Login View'),
@@ -83,11 +86,11 @@ class LoginView extends ConsumerWidget {
       body: Column(
         children: [
           TextButton(
-            onPressed:ref.read(authStateProvider.notifier).loginWithGoogle,
+            onPressed: ref.read(authStateProvider.notifier).loginWithGoogle,
             child: const Text('Sign in with google'),
           ),
           TextButton(
-            onPressed:ref.read(authStateProvider.notifier).loginWithFacebook,
+            onPressed: ref.read(authStateProvider.notifier).loginWithFacebook,
             child: const Text('Sign in with Facebook'),
           ),
         ],
